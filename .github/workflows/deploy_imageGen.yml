@@ -31,7 +31,7 @@ jobs:
 
     - name: Build
       run: |
-        sam build
+        sam build --template-file oppgave1/image-gen/template.yaml
 
     - name: Deploy
       run: |
