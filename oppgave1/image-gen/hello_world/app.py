@@ -14,7 +14,7 @@ s3_client = boto3.client("s3")
 model_id = "amazon.titan-image-generator-v1"
 
 #bucket_name = "pgr301-couch-explorers"
-bucket_name = os.environ['BUCKET_NAME']
+    bucket_name = os.environ['BUCKET_NAME']
 
 # Frank; Important; Change this prompt to something else before the presentation with the investors!
 # prompt = "Sunset with purple clouds"
