@@ -3,3 +3,4 @@
 /oppgave1/image-gen/.aws-sam
 /infra/.idea
 /infra/.terraform
+/java_sqs_client/.idea

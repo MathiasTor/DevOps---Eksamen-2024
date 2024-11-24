@@ -41,7 +41,7 @@ jobs:
         run: terraform plan
 
       # Step 6: Terraform Apply for main branch
-      - name: Terraform Apply 
+      - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         working-directory: infra
         run: terraform apply -auto-approve
