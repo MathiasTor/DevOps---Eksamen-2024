@@ -3,7 +3,7 @@ name: Terraform Deployment
 on:
   push:
     branches:
-      - 'main'
+      - '**'
 
 jobs:
   terraform:
@@ -11,14 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Setup Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.9.0
 
+      # Step 3: Configure AWS Credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
@@ -26,10 +29,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
+      # Step 4: Terraform Init
       - name: Terraform Init
         working-directory: infra
         run: terraform init
 
+      # Step 5: Terraform Plan for non-main branches
+      - name: Terraform Plan
+        if: github.ref != 'refs/heads/main'
+        working-directory: infra
+        run: terraform plan
+
+      # Step 6: Terraform Apply for main branch
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         working-directory: infra
