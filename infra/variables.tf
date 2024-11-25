@@ -11,6 +11,6 @@ variable "s3_bucket_name" {
 }
 
 variable "email_address" {
-  default = "mato058@egms.no"
+  default = "devops---eksamen-2024@noreply.github.com"
 }
 
