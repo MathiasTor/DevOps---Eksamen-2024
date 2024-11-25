@@ -87,7 +87,7 @@ resource "aws_cloudwatch_metric_alarm" "sqs_queue_alarm" {
   namespace           = "AWS/SQS"
   period              = 60
   statistic           = "Maximum"
-  threshold           = 2
+  threshold           = 100
   alarm_description = "Triggers when oldest message in SQS queue is older than configured threshold"
   alarm_actions = [aws_sns_topic.cloudwatch_alarm_topic.arn]
   dimensions = {
