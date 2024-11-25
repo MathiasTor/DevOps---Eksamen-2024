@@ -23,6 +23,6 @@ module "sqs_lambda" {
   sqs_queue_name       = var.sqs_queue_name
   s3_bucket_name       = var.s3_bucket_name
   lambda_function_name = var.lambda_function_name
-  alarm_email          = var.email_address
+  email_address          = var.email_address
 }
 
