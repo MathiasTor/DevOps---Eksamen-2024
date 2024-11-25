@@ -13,3 +13,7 @@ variable "lambda_function_name" {
   type        = string
 }
 
+variable "email_address" {
+  description = "Email address to send notifications to"
+  type        = string
+}

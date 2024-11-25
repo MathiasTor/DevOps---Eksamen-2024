@@ -20,8 +20,9 @@ provider "aws" {
 module "sqs_lambda" {
   source = "./modules/sqs_lambda"
 
-  sqs_queue_name       = "image-generator-queue"
-  s3_bucket_name       = "pgr301-couch-explorers"
-  lambda_function_name = "image-generator-lambda-62"
+  sqs_queue_name       = var.sqs_queue_name
+  s3_bucket_name       = var.s3_bucket_name
+  lambda_function_name = var.lambda_function_name
+  alarm_email          = var.email_address
 }
 
