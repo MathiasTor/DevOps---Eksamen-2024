@@ -13,7 +13,7 @@ s3_client = boto3.client("s3")
 # Define the model ID and S3 bucket name (replace with your actual bucket name)
 model_id = "amazon.titan-image-generator-v1"
 
-#bucket_name = "pgr301-couch-explorers"
+#bucket_name = "pgr301-couch-explorers "
     bucket_name = os.environ['BUCKET_NAME']
 
 # Frank; Important; Change this prompt to something else before the presentation with the investors!
@@ -39,6 +39,7 @@ def lambda_handler(event, context):
                 "seed": seed,
             }
         }
+
 
         response = bedrock_client.invoke_model(modelId=model_id, body=json.dumps(native_request))
         model_response = json.loads(response["body"].read())
