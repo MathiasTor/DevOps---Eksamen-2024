@@ -70,7 +70,7 @@ resource "aws_lambda_event_source_mapping" "sqs_to_lambda" {
 }
 
 resource "aws_sns_topic" "cloudwatch_alarm_topic" {
-  name = "cloudwatch-alarm-topic"
+  name = "cloudwatch-alarm-topic-62"
 }
 
 resource "aws_sns_topic_subscription" "email_address_subscription" {
